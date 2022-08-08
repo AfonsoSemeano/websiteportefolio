@@ -11,6 +11,12 @@
 # production
 /build
 
+#backend
+/backend/venv
+/backend/.idea
+/backend/__pycache__
+/backend/record.log
+
 # misc
 .DS_Store
 .env.local
