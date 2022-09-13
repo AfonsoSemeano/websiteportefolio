@@ -1,23 +1,23 @@
 import { Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 
-function AboutMe() {
+function AboutMe(props) {
+    let { lang } = useParams();
+  
+    function translate(text) {
+        return props.fullTranslation[text][lang];
+    }
+
     return (
         <>
-            <h1 id="aboutme" className='fw-semibold'>Sobre Mim</h1>
+            <h1 id="aboutme" className='fw-semibold'>{translate("aboutme")}</h1>
             <Container>
                 <p>
-                    Estou disposto a trabalhar como full-stack developer e também
-                    em desenvolvimento de aplicações móveis/desktop.
-                    Porém, também estou disposto a aprender línguas e frameworks novas.
-                    Acredito que a faculdade não me ensinou línguas/frameworks novas,
-                    mas ensinou-me como aprender essas ferramentas...
+                    {translate("pone")}
                     <br />
-                    Ou seja, sou
-                    muito capaz de aprender línguas e frameworks que desconheça,
-                    e portanto sou muito adaptável a vários empregos pois aprendo
-                    com rapidez o que é especificamente necessário para aquele trabalho.
+                    {translate("ptwo")}
                 </p>
-                <h3>Línguas que tenho conhecimentos:</h3>
+                <h3>{translate("languages")}</h3>
                 <ul>
                     <li>Python</li>
                     <li>Javascript</li>
@@ -26,10 +26,10 @@ function AboutMe() {
                     <li>C</li>
                 </ul>
                 <br />
-                <h3>Formações:</h3>
+                <h3>{translate("courses")}</h3>
                 <ul>
-                    <li>Licenciatura em Engenharia Informática no Instituto Politécnico de Setúbal (IPS)</li>
-                    <li>Curso de Python Udemy: The Python Mega Course: Build 10 Real World Applications</li>
+                    <li>{translate("courseone")}</li>
+                    <li>{translate("coursetwo")}</li>
                 </ul>
                 <br />
 

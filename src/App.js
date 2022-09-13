@@ -8,7 +8,7 @@ import MyProjects from './myprojects';
 import Footer from './footer';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getComponentTranslation } from './translations';
+import { getAllTranslations, getComponentTranslation, translationState } from './translations';
 import { useEffect, useState } from 'react';
 
 //TODO: Passar a chamada à BD para o início da App e passar a variável como uma prop?????
@@ -17,24 +17,9 @@ import { useEffect, useState } from 'react';
 
 function Jumbotron(props) {
   let { lang } = useParams();
-
-  const [finalResponse, setFinalResponse] = useState({
-    welcome: '',
-    meetmeone: '',
-    myprojects: '',
-    createaccount: '',
-    aboutme: '',
-    meetmetwo: '',
-  });
-
-  useEffect(() => {
-    getComponentTranslation("jumbotron", function(response) {
-      setFinalResponse(response);
-    });
-  }, [lang]);
   
   function translate(text) {
-    return finalResponse[text][lang];
+    return props.fullTranslation[text][lang];
   }
 
 
@@ -57,12 +42,20 @@ function Divider() {
 function MainApp() {
   let { lang } = useParams();
 
+  const [translation, setTranslation] = useState(translationState);
+
+  useEffect(() => {
+    getAllTranslations(function(response) {
+      setTranslation(response);
+    });
+  }, [lang]);
+
   return (
     <>
-      <TopNavbar />
-      <Jumbotron title="Olá!" />
+      <TopNavbar fullTranslation={translation["navbar"]}/>
+      <Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
       <Divider />
-      <AboutMe />
+      <AboutMe fullTranslation={translation["aboutme"]}/>
       <Divider />
       <MyProjects />
       <Divider />

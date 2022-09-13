@@ -4,27 +4,11 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
-function TopNavbar() {
+function TopNavbar(props) {
   let { lang } = useParams();
-
-  const [finalResponse, setFinalResponse] = useState({
-    home: '',
-    aboutme: '',
-    myprojects: '',
-    portefoliowebsite: '',
-    login: '',
-    register: '',
-    language: '',
-  });
-
-  useEffect(() => {
-    getComponentTranslation("navbar", function(response) {
-      setFinalResponse(response);
-    });
-  }, [lang]);
   
   function translate(text) {
-    return finalResponse[text][lang];
+    return props.fullTranslation[text][lang];
   }
 
     return (

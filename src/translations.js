@@ -1,5 +1,3 @@
-let allTranslations = ["fake", "fakey", "fakeyest"];
-
 function getComponentTranslation(type, onLoad) {
     let req = new XMLHttpRequest();
     req.responseType = "json";
@@ -10,27 +8,45 @@ function getComponentTranslation(type, onLoad) {
     req.send();
 }
 
-/*
-function searchForType(type) {
-    for (let translation of allTranslations) {
-        if (translation.type === type) {
-            return translation;
-        }
+function getAllTranslations(onLoad) {
+    let req = new XMLHttpRequest();
+    req.responseType = "json";
+    req.onload = function() {
+        onLoad(this.response);
     }
+    req.open("GET", `/translations`);
+    req.send();
 }
 
-
-function findComponentTranslation(type) {
-    let foundDocument;
-    if (!allTranslations) {
-        getAllTransactions(function() {
-            foundDocument = searchForType(type);
-        })
-    } else {
-        foundDocument = searchForType(type);
+const translationState = {
+    'navbar': {
+      'home': '',
+      'aboutme': '',
+      'myprojects': '',
+      'portefoliowebsite': '',
+      'login': '',
+      'register': '',
+      'language': '',
+    },
+    'jumbotron': {
+      'welcome': '',
+      'aboutme': '',
+      'myprojects': '',
+      'createaccount': '',
+      'meetmeone': '',
+      'meetmetwo': '',
+    },
+    'aboutme': {
+      "aboutme": '',
+      "pone": '',
+      "ptwo": '',
+      "languages": '',
+      "courses": '',
+      "courseone": '',
+      "coursetwo": '',
     }
-    return foundDocument;
-}
-*/
+  };
 
 exports.getComponentTranslation = getComponentTranslation;
+exports.getAllTranslations = getAllTranslations;
+exports.translationState = translationState;

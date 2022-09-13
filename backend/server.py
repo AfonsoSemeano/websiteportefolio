@@ -1,5 +1,6 @@
 # Import flask and datetime module for showing date and time
 from distutils.log import Log
+import re
 from tokenize import String
 from flask import Flask, send_from_directory, jsonify, json, request
 from pymongo import MongoClient
@@ -23,15 +24,18 @@ translation = db.translation
 @app.route('/translation/<type>', methods=['GET'])
 def get_time(type):
 	stuff = translation.find({"type": type}).next()
-	print(stuff)
+	#print(stuff)
 	# Returning an api for showing in reactjs
 	return parse_json(stuff)
+
+@app.route('/translations', methods=['GET'])
+def get_translations():
+	rootJson = {}
+	translations = translation.find({})
+	for document in translations:
+		rootJson[document['type']] = document
 	
-@app.route('/man/<hey>', methods=['GET'])
-def stff(hey):
-	man = "bro"
-	manhey = man + ' ' + hey
-	return manhey
+	return parse_json(rootJson)	
 
 def parse_json(data):
 	return json.loads(json_util.dumps(data))
