@@ -29,6 +29,7 @@ const translationState = {
       'language': '',
     },
     'jumbotron': {
+      'hello': '',
       'welcome': '',
       'aboutme': '',
       'myprojects': '',
@@ -44,6 +45,22 @@ const translationState = {
       "courses": '',
       "courseone": '',
       "coursetwo": '',
+    },
+    'myprojects': {
+      'myprojects': '',
+      'selectproject': '',
+      'openproject': '',
+      'reportbugs': '',
+      'givefeedback': '',
+      'portefolio': {
+        'title': '',
+        'desc': '',
+        'imgurl': ''
+      }
+    },
+    'footer': {
+      'madeby': '',
+      'getintouch': ''
     }
   };
 
