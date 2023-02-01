@@ -1,10 +1,14 @@
 # Import flask and datetime module for showing date and time
 from distutils.log import Log
+from http.client import BAD_REQUEST, CONFLICT, FOUND, NOT_ACCEPTABLE, NOT_FOUND, OK
+from pydoc import doc
+from telnetlib import STATUS
 from tokenize import String
-from flask import Flask, send_from_directory, jsonify, json, request
+from xmlrpc.client import SERVER_ERROR
+from flask import Flask, send_from_directory, jsonify, json, request, Response
 from flask_bcrypt import Bcrypt
 from pymongo import MongoClient
-from bson import json_util
+from bson import json_util, ObjectId
 import time
 import logging
 import datetime
@@ -19,7 +23,9 @@ logging.basicConfig(filename='record.log', level=logging.DEBUG, format=f'%(ascti
 
 client = MongoClient('localhost', 27017)
 db = client.PortefolioDB
+
 translation = db.translation
+credentials = db.credentials
 
 # Route for seeing a data
 @app.route('/translation/<type>', methods=['GET'])
@@ -48,9 +54,57 @@ def encryptPass(passe):
 	pw_hash = bcrypt.generate_password_hash(passe)
 	isLegit = bcrypt.check_password_hash(pw_hash, 'hello')
 	return parse_json({
-		'hashe': pw_hash,
+		'hashe': pw_hash.decode('utf-8'),
 		'isLegit': isLegit
 	})
+
+@app.route('/findid/<idValue>', methods=['GET', 'POST'])
+def findid(idValue):
+	rawId = parse_json(credentials.find({"_id": ObjectId(idValue)}).next())['_id']['$oid']
+	return bcrypt.generate_password_hash(rawId).decode('utf-8')
+
+@app.route('/credentials/<authType>', methods=['POST'])
+def authenticate(authType):
+	bodyContent = request.get_json()
+	username = bodyContent['username']
+	password = bodyContent['password']
+	documentAmount = credentials.count_documents({'username': username})
+	if authType == 'login': #LOGIN
+		if documentAmount == 1:
+
+			credential = credentials.find({'username': username}).next()
+			passEnc = credential['passwordEnc']
+			if bcrypt.check_password_hash(passEnc, password):
+				encId = bcrypt.generate_password_hash(str(credential['_id'])).decode('utf-8')
+				return Response(encId, status=OK)
+			return Response("Wrong password, please try again.", status=NOT_ACCEPTABLE)
+
+		return Response("Username not found, please register.", status=NOT_FOUND)
+	if authType == 'register': #REGISTER
+
+		if documentAmount == 1:
+			return Response("Username already exists!", status=CONFLICT)
+		if documentAmount == 0:
+			pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
+			credentials.insert_one({'username': username, 'passwordEnc': pw_hash})
+			latestEntry = credentials.find().sort('_id', -1).limit(1).next()
+			print(latestEntry['_id'])
+			#rawId = parse_json(credentials.find({"_id": ObjectId(latestEntry)}).next())['_id']['$oid']
+			encId = bcrypt.generate_password_hash(str(latestEntry['_id'])).decode('utf-8')
+			#print(encId)
+			return Response(encId, status=OK)
+
+	return Response(status=SERVER_ERROR)
+
+@app.route('/checkobjectid', methods=['POST'])
+def checkObjectId():
+	objectEncId = request.get_data(as_text=True)
+	if objectEncId == '':
+		return Response('Id is invalid.', status=NOT_FOUND)
+	for document in credentials.find():
+		if bcrypt.check_password_hash(objectEncId, str(document['_id'])):
+			return Response('Id is valid.' + document['username'], status=OK)
+	return Response('Id is invalid.', status=NOT_FOUND)
 
 # Running app
 if __name__ == '__main__':

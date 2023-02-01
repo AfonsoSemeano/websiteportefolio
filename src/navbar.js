@@ -1,14 +1,39 @@
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { getComponentTranslation } from './translations';
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { LoginBox, RegisterBox } from './forms';
+
 
 function TopNavbar(props) {
   let { lang } = useParams();
+
+  const [showLoginBox, setShowLoginBox] = useState(false);
+  const [showRegisterBox, setShowRegisterBox] = useState(false);
+  const [showUserDiv, setShowUserDiv] = useState(false);
+
+  useEffect(() => {
+    props.authenticateCookie(toggleUserDiv);
+  }, []);
   
   function translate(text) {
     return props.fullTranslation[text][lang];
+  }
+
+  function toggleLoginBox() {
+    setShowRegisterBox(false);
+    setShowLoginBox(showLoginBox => !showLoginBox);
+  }
+
+  function toggleRegisterBox() {
+    setShowLoginBox(false);
+    setShowRegisterBox(showRegisterBox => !showRegisterBox);
+  }
+
+  function toggleUserDiv() {
+    setShowUserDiv(showUserDiv => !showUserDiv);
+    setShowLoginBox(false);
+    setShowRegisterBox(false);
   }
 
     return (
@@ -33,9 +58,15 @@ function TopNavbar(props) {
                 </div>
               </Nav>
               <Navbar.Collapse className='justify-content-end'>
-                <Nav.Link href="#login" className='navbar-text'>{translate("login")}</Nav.Link>
-                <div className="mx-1">/</div>
-                <Nav.Link href="#register" className='navbar-text'>{translate("register")}</Nav.Link>
+                <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? 'd-none': '')}>
+                  <Nav.Link href="#" className='navbar-text' onClick={() => {scrollToId('top'); toggleLoginBox()}}>{translate("login")}</Nav.Link>
+                  <div className="mx-1">/</div>
+                  <Nav.Link href="#" className='navbar-text' onClick={() => {scrollToId('top'); toggleRegisterBox()}}>{translate("register")}</Nav.Link>
+                </div>
+                <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? '': 'd-none')}>
+                  <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
+                </div>
                 <NavDropdown title={<span className='navbar-text'>{translate("language")}</span>} id="basic-nav-dropdown" className="ms-4 me-2">
                   <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT' />
                   <FlagItem flagSrc='england-icon-flag.png' flagChars='EN' />
@@ -44,6 +75,8 @@ function TopNavbar(props) {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        <LoginBox id="login-register" toggleUserDiv={toggleUserDiv} show={showLoginBox} fullTranslation={props.loginRegisterTranslation}/>
+        <RegisterBox show={showRegisterBox} toggleUserDiv={toggleUserDiv} fullTranslation={props.loginRegisterTranslation}/>
       </>
     );
   }
@@ -55,6 +88,10 @@ function TopNavbar(props) {
         <div className='ms-1'>{props.flagChars}</div>
       </NavDropdown.Item>
     );
+  }
+
+  function scrollToId(id) {
+    document.getElementById(id).scrollIntoView(true);
   }
 
 export default TopNavbar;

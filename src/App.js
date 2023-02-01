@@ -10,6 +10,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getAllTranslations, getComponentTranslation, translationState } from './translations';
 import { useEffect, useState } from 'react';
+import { FormExample, FormExampleOne } from './test';
+import Cookies from 'js-cookie';
 
 //TODO: Passar a chamada à BD para o início da App e passar a variável como uma prop?????
 //Se a prop for um state, então pode funcionar pois ao obter a informaçao da BD, irá renderizar todos os elementos do site
@@ -24,12 +26,14 @@ function Jumbotron(props) {
 
 
   return (
-    <Container id="home" className="py-5">
-      <h1 className="display-5 fw-bold">{translate("hello")}!</h1>
-      <p className="fs-4">{translate("welcome")}</p>
-      <p className="fs-4">{translate("meetmeone")}<a href="#aboutme">{translate("aboutme")}</a>{translate("meetmetwo")}<a href="#myprojects">{translate("myprojects")}</a>.</p>
-      <p className='fs-4'>{translate("createaccount")}</p>
-    </Container>
+    <>
+      <Container id="home" className="py-5">
+        <h1 className="display-5 fw-bold">{translate("hello")}!</h1>
+        <p className="fs-4">{translate("welcome")}</p>
+        <p className="fs-4">{translate("meetmeone")}<a href="#aboutme">{translate("aboutme")}</a>{translate("meetmetwo")}<a href="#myprojects">{translate("myprojects")}</a>.</p>
+        <p className='fs-4'>{translate("createaccount")}</p>
+      </Container>
+    </>
   );
 }
 
@@ -50,9 +54,40 @@ function MainApp() {
     });
   }, [lang]);
 
+  useEffect(() => {
+    const userIdEnc = Cookies.get("userid");
+    let req = new XMLHttpRequest();
+    req.responseType = "text";
+    req.onload = function() {
+      if (req.status !== 200) {
+        const expiredTime = new Date(new Date().getTime() - 1);
+        Cookies.set("userid", "", {expires: expiredTime});
+      } else {
+        
+      }
+    }
+  }, []);
+
+  function authenticateCookie(toggleDivs) {
+    const userIdEnc = Cookies.get("userid");
+    let req = new XMLHttpRequest();
+    req.responseType = "text";
+    req.onload = function() {
+      if (req.status !== 200) {
+        const expiredTime = new Date(new Date().getTime() - 1);
+        Cookies.set("userid", "", {expires: expiredTime});
+      } else {
+        toggleDivs();
+      }
+    }
+    req.open('POST', '/checkobjectid');
+    req.send(userIdEnc);
+  }
+
   return (
     <>
-      <TopNavbar fullTranslation={translation["navbar"]}/>
+      <div id="top" />
+      <TopNavbar authenticateCookie={authenticateCookie} fullTranslation={translation["navbar"]} loginRegisterTranslation={translation["login-registo"]}/>
       <Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
       <Divider />
       <AboutMe fullTranslation={translation["aboutme"]}/>

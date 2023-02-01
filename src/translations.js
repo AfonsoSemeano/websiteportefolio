@@ -61,6 +61,18 @@ const translationState = {
     'footer': {
       'madeby': '',
       'getintouch': ''
+    },
+    'login-registo': {
+      "username": '',
+      "password": '',
+      "keepsession": '',
+      "submit": '',
+      "invalidusernamecharacters": '',
+      "required": '',
+      "invalidpasswordcharacters": '',
+      "invalidusernamelength": '',
+      "characterslong": '',
+      "invalidpasswordlength": ''
     }
   };
 

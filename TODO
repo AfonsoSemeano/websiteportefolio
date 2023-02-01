@@ -1,0 +1,6 @@
+Quero guardar o id do objeto encriptado na cookie do website para depois o utilizador, quando reentrar no site, fazer login
+automaticamente.
+
+TODO:
+- Aplicar o que foi dito acima no Login.
+- Descobrir uma maneira de manter a sessão quando o utilizador não clica no "Check me out".
