@@ -67,10 +67,14 @@ function TopNavbar(props) {
                   <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
                   <Nav.Link href="#" className='navbar-text' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
                 </div>
-                <NavDropdown title={<span className='navbar-text'>{translate("language")}</span>} id="basic-nav-dropdown" className="ms-4 me-2">
-                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT' />
-                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN' />
-                </NavDropdown>
+                <LanguageDropdown languageText={translate("language")}>
+                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT'/>
+                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN'/>
+                </LanguageDropdown>
+                {/*<NavDropdown title={<span className='navbar-text'>{translate("language")}</span>} id="basic-nav-dropdown" className="ms-4 me-2" >
+                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT'/>
+                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN'/>
+                </NavDropdown>*/}
               </Navbar.Collapse>
             </Navbar.Collapse>
           </Container>
@@ -87,6 +91,24 @@ function TopNavbar(props) {
         <img src={props.flagSrc} alt="img" width="30" height="30" />
         <div className='ms-1'>{props.flagChars}</div>
       </NavDropdown.Item>
+    );
+  }
+
+  function LanguageDropdown(props) {
+    const [dropdownOn, setDropdownOn] = useState(false);
+
+    function toggleDropdown() {
+      console.log("Toggled: " + dropdownOn);
+      setDropdownOn(dropdownOn => !dropdownOn);
+    }
+
+    return (
+      <div class="dropdown">
+        <div class="dropbtn navbar-text" onClick={() => toggleDropdown()}>{props.languageText}</div>
+        <div class={"dropdown-content " + (dropdownOn ? "d-block" : "d-none")}>
+          {props.children}
+        </div>
+      </div>
     );
   }
 

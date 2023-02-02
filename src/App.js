@@ -1,17 +1,19 @@
-import './App.css';
+//import './App.css';
+import './styles.scss';
+
 import { Container } from 'react-bootstrap';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import TopNavbar from './navbar';
 import AboutMe from './aboutme';
 import MyProjects from './myprojects';
 import Footer from './footer';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { getAllTranslations, getComponentTranslation, translationState } from './translations';
+import { getAllTranslations, translationState } from './translations';
 import { useEffect, useState } from 'react';
-import { FormExample, FormExampleOne } from './test';
 import Cookies from 'js-cookie';
+
 
 //TODO: Passar a chamada à BD para o início da App e passar a variável como uma prop?????
 //Se a prop for um state, então pode funcionar pois ao obter a informaçao da BD, irá renderizar todos os elementos do site
