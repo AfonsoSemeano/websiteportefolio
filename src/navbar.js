@@ -62,9 +62,9 @@ function TopNavbar(props) {
               </Nav>
               <Navbar.Collapse className='justify-content-end'>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? 'd-none': '')}>
-                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {scrollToId('top'); toggleLoginBox()}}>{translate("login")}</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleLoginBox()}}>{translate("login")}</Nav.Link>
                   <div className="mx-1">/</div>
-                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {scrollToId('top'); toggleRegisterBox()}}>{translate("register")}</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleRegisterBox()}}>{translate("register")}</Nav.Link>
                 </div>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? '': 'd-none')}>
                   <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
