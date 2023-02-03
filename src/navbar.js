@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Dropdown } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { LoginBox, RegisterBox } from './forms';
 
@@ -38,30 +38,33 @@ function TopNavbar(props) {
 
     return (
       <>
-        <Navbar bg="light" expand="lg" sticky="top" className="border-bottom">
+        <Navbar bg="primary" expand="lg" sticky="top" className="border-bottom border-primary navbar-text-color">
           <Container fluid>
-            <Navbar.Brand href="#home">Afonso Semeano</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Brand href="#home" className='navbar-text-color fw-semibold'>Afonso Semeano</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white'/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">
                 <div className='d-flex flex-row'>
-                  <Nav.Link href="#home" className='border'>{translate("home")}</Nav.Link>
-                  <Nav.Link href="#aboutme" className='border mx-2'>{translate("aboutme")}</Nav.Link>
-                  <div className='d-flex flex-row border'>
-                    <Nav.Link href="#myprojects">{translate("myprojects")}</Nav.Link>
-                    <NavDropdown id="basic-nav-dropdown">
-                      <NavDropdown.Item href="#portefoliowebsite">{translate("portefoliowebsite")}</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.2">2nd Project</NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.3">3rd Project</NavDropdown.Item>
-                    </NavDropdown>
+                  <Nav.Link href="#home" className='navbar-text-color fw-semibold'>{translate("home")}</Nav.Link>
+                  <Nav.Link href="#aboutme" className='mx-2 navbar-text-color fw-semibold'>{translate("aboutme")}</Nav.Link>
+                  <div className='d-flex flex-row'>
+                    <Nav.Link href="#myprojects" className='navbar-text-color fw-semibold'>{translate("myprojects")}</Nav.Link>
+                    <Dropdown className='closer-arrow'>
+                      <Dropdown.Toggle variant='dark' className='transparent-bg border-0 hover-background-dropdown mt-1'></Dropdown.Toggle>
+                      <Dropdown.Menu id="nav-dropdown" title="HAA" className='text-white'>
+                        <NavDropdown.Item href="#portefoliowebsite">{translate("portefoliowebsite")}</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">2nd Project</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3">3rd Project</NavDropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </div>
                 </div>
               </Nav>
               <Navbar.Collapse className='justify-content-end'>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? 'd-none': '')}>
-                  <Nav.Link href="#" className='navbar-text' onClick={() => {scrollToId('top'); toggleLoginBox()}}>{translate("login")}</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {scrollToId('top'); toggleLoginBox()}}>{translate("login")}</Nav.Link>
                   <div className="mx-1">/</div>
-                  <Nav.Link href="#" className='navbar-text' onClick={() => {scrollToId('top'); toggleRegisterBox()}}>{translate("register")}</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {scrollToId('top'); toggleRegisterBox()}}>{translate("register")}</Nav.Link>
                 </div>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? '': 'd-none')}>
                   <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
@@ -104,7 +107,7 @@ function TopNavbar(props) {
 
     return (
       <div class="dropdown">
-        <div class="dropbtn navbar-text" onClick={() => toggleDropdown()}>{props.languageText}</div>
+        <div class="dropbtn navbar-text navbar-text-color fw-semibold" onClick={() => toggleDropdown()}>{props.languageText}</div>
         <div class={"dropdown-content " + (dropdownOn ? "d-block" : "d-none")}>
           {props.children}
         </div>

@@ -1,20 +1,49 @@
 
 
 $theme-colors: (
-    "primary": #007bff,
-    "secondary": #6c757d,
+    "primary": #A7727D,//#007bff,
+    "secondary": #EDDBC7,//#6c757d,
     "success": #28a745,
     "info": #17a2b8,
     "warning": #ffc107,
     "danger": #dc3545,
     "light": #faf8f9,
-    "dark": #343a40
+    "dark": #343a40,
+    "terciary": #F8EAD8,
 );
+
+$primary: #A7727D;
+$secondary: #EDDBC7;
+$terciary: #F8EAD8;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Why is this import not working?
 //@import "node_modules/bootstrap/scss/_functions.scss";
+
+body {
+    background: $secondary !important;
+}
+
+.navbar-text-color  {
+    color: #faf8f9;
+}
+
+.transparent-bg {
+    background-color: rgba(0,0,0,0);
+}
+
+.hover-background-dropdown:hover {
+    background-color: rgba(0,0,0,0);
+}
+
+.hover-background-dropdown:not(:disabled):not(:disabled):active {
+    background-color: rgba(0,0,0,0);
+}
+
+.closer-arrow {
+    right: 12px;
+}
 
 .custom-dropdown {
     width: auto;
@@ -34,8 +63,8 @@ $theme-colors: (
     cursor: pointer;
 }
 
-.dropbtn:hover {
-    color: rgba(0,0,0,1);
+.navbar-text:hover {
+    color: #322225;
 }
 
 /* The container <div> - needed to position the dropdown content */

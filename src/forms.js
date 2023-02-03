@@ -69,7 +69,7 @@ function LoginBox(props) {
       handleSubmit,
       isSubmitting,
     }) => (
-      <Form className={'d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end position-absolute-right me-3 bg-light ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
+      <Form className={'d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4 position-absolute-right me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
         <h4 className='fw-bold'>LOGIN</h4>
         <Form.Group>
           <Form.Label>Username</Form.Label>
@@ -187,7 +187,7 @@ function RegisterBox(props) {
       handleSubmit,
       isSubmitting,
     }) => (
-      <Form className={'d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end position-absolute-right me-3 bg-light ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
+      <Form className={'d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4 position-absolute-right me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
         <h4 className='fw-bold'>REGISTO</h4>
         <Form.Group>
           <Form.Label>Username</Form.Label>

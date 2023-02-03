@@ -9,9 +9,9 @@ function AboutMe(props) {
     }
 
     return (
-        <>
-            <h1 id="aboutme" className='fw-semibold'>{translate("aboutme")}</h1>
-            <Container>
+        <div className='bg-secondary'>
+            <h1 id="aboutme" className='fw-semibold ms-2'>{translate("aboutme")}</h1>
+            <Container >
                 <p>
                     {translate("pone")}
                     <br />
@@ -34,7 +34,7 @@ function AboutMe(props) {
                 <br />
 
             </Container>
-        </>
+        </div>
     );
 }
 

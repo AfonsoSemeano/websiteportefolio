@@ -28,20 +28,20 @@ function Jumbotron(props) {
 
 
   return (
-    <>
+    <div className='bg-secondary'>
       <Container id="home" className="py-5">
         <h1 className="display-5 fw-bold">{translate("hello")}!</h1>
         <p className="fs-4">{translate("welcome")}</p>
         <p className="fs-4">{translate("meetmeone")}<a href="#aboutme">{translate("aboutme")}</a>{translate("meetmetwo")}<a href="#myprojects">{translate("myprojects")}</a>.</p>
         <p className='fs-4'>{translate("createaccount")}</p>
       </Container>
-    </>
+    </div>
   );
 }
 
 function Divider() {
   return (
-    <div className="border-top"></div>
+    <div className="border-top border-2 border-primary"></div>
   );
 }
 

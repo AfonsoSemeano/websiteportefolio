@@ -9,17 +9,17 @@ function Footer(props) {
     }
 
     return (
-        <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+        <div className='bg-primary'>
             <Container>
                 <Row>
-                    <Col className="d-flex align-items-center">
+                    <Col className="d-flex align-items-center navbar-text-color fw-semibold">
                         <p>{translate("madeby")}: Afonso Semeano</p>
                     </Col>
                     <Col></Col>
                     <Col>
-                        <h5 className='fw-semibold'>{translate("getintouch")}:</h5>
-                        <p>Email: afonsosemeano@gmail.com</p>
-                        <p>Linkedin: none</p>
+                        <h5 className='fw-semibold navbar-text-color'>{translate("getintouch")}:</h5>
+                        <p className='navbar-text-color'>Email: afonsosemeano@gmail.com</p>
+                        <p className='navbar-text-color'>Linkedin: none</p>
                     </Col>
                 </Row>
             </Container>
