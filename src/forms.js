@@ -42,7 +42,11 @@ function LoginBox(props) {
       req.onload = function() {
         if (req.status !== 200) { //If server found an error in the user input
           console.log(this.response);
-          setServerFeedback(this.response);
+          if (req.status === 406) {
+            setServerFeedback(translate("wrongpassword"));
+          } else if (req.status === 404) {
+            setServerFeedback(translate("usernamenotfound"));
+          }
         } else {
           if (checkBoxClicked) {
             Cookies.set('userid', this.response, { expires: 14 });
@@ -69,7 +73,7 @@ function LoginBox(props) {
       handleSubmit,
       isSubmitting,
     }) => (
-      <Form className={'login-register-box-styling sticky-top d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4  me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
+      <Form className={'login-register-box-styling d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4  me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
         <h4 className='fw-bold'>LOGIN</h4>
         <Form.Group>
           <Form.Label>Username</Form.Label>
@@ -109,7 +113,7 @@ function LoginBox(props) {
         <Form.Text className='mb-1 text-danger'>
           {serverFeedback}
         </Form.Text>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className='text-white fw-semibold'>
           {translate('submit')}
         </Button>
       </Form>
@@ -160,7 +164,9 @@ function RegisterBox(props) {
       req.onload = function() {
         if (req.status !== 200) { //If server found an error in the user input
           console.log(this.response);
-          setServerFeedback(this.response);
+          if (req.status === 409) {
+            setServerFeedback(translate("usernamealreadyexists"));
+          }
         } else {
           if (checkBoxClicked) {
             Cookies.set('userid', this.response, { expires: 14 });
@@ -226,7 +232,7 @@ function RegisterBox(props) {
         <Form.Text className='mb-1 text-danger'>
           {serverFeedback}
         </Form.Text>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className='text-white fw-semibold'>
           {translate('submit')}
         </Button>
       </Form>

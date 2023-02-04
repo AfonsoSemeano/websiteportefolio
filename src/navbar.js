@@ -38,7 +38,7 @@ function TopNavbar(props) {
 
     return (
       <>
-        <Navbar bg="primary" expand="lg" sticky="top" className="border-bottom border-primary navbar-text-color">
+        <Navbar bg="primary" expand="lg" sticky="top" className="border-bottom border-primary navbar-text-color shadow-sm">
           <Container fluid>
             <Navbar.Brand href="#home" className='navbar-text-color fw-semibold'>Afonso Semeano</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white'/>
@@ -50,11 +50,11 @@ function TopNavbar(props) {
                   <div className='d-flex flex-row'>
                     <Nav.Link href="#myprojects" className='navbar-text-color fw-semibold'>{translate("myprojects")}</Nav.Link>
                     <Dropdown className='closer-arrow'>
-                      <Dropdown.Toggle variant='dark' className='transparent-bg border-0 hover-background-dropdown mt-1'></Dropdown.Toggle>
-                      <Dropdown.Menu id="nav-dropdown" title="HAA" className='text-white'>
-                        <NavDropdown.Item href="#portefoliowebsite">{translate("portefoliowebsite")}</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">2nd Project</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">3rd Project</NavDropdown.Item>
+                      <Dropdown.Toggle variant='' className='transparent-bg border-0 hover-background-dropdown mt-1'></Dropdown.Toggle>
+                      <Dropdown.Menu id="nav-dropdown" className='bg-primary'>
+                        <NavDropdown.Item href="#portefoliowebsite" className='fw-semibold'>{translate("portefoliowebsite")}</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2" className='fw-semibold'>2nd Project</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3" className='fw-semibold'>3rd Project</NavDropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>
@@ -71,13 +71,9 @@ function TopNavbar(props) {
                   <Nav.Link href="#" className='navbar-text' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
                 </div>
                 <LanguageDropdown languageText={translate("language")}>
-                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT'/>
-                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN'/>
+                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT' className='mt-2'/>
+                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN' className='mb-2'/>
                 </LanguageDropdown>
-                {/*<NavDropdown title={<span className='navbar-text'>{translate("language")}</span>} id="basic-nav-dropdown" className="ms-4 me-2" >
-                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT'/>
-                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN'/>
-                </NavDropdown>*/}
               </Navbar.Collapse>
             </Navbar.Collapse>
           </Container>
@@ -90,9 +86,9 @@ function TopNavbar(props) {
   
   function FlagItem(props) {
     return (
-      <NavDropdown.Item href={props.flagChars.toLowerCase()} className="d-flex flex-row align-items-center">
+      <NavDropdown.Item href={props.flagChars.toLowerCase()} className={`d-flex flex-row align-items-center ${props.className}`}>
         <img src={props.flagSrc} alt="img" width="30" height="30" />
-        <div className='ms-1'>{props.flagChars}</div>
+        <div className='ms-1 text-white fw-bold'>{props.flagChars}</div>
       </NavDropdown.Item>
     );
   }
@@ -108,7 +104,7 @@ function TopNavbar(props) {
     return (
       <div class="dropdown">
         <div class="dropbtn navbar-text navbar-text-color fw-semibold" onClick={() => toggleDropdown()}>{props.languageText}</div>
-        <div class={"dropdown-content " + (dropdownOn ? "d-block" : "d-none")}>
+        <div class={"dropdown-content bg-primary rounded border border-grey " + (dropdownOn ? "d-block" : "d-none")}>
           {props.children}
         </div>
       </div>

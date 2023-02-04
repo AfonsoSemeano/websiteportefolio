@@ -24,6 +24,7 @@ function AboutMe(props) {
                     <li>Java</li>
                     <li>SQL/NO-SQL</li>
                     <li>C</li>
+                    <li>C#</li>
                 </ul>
                 <br />
                 <h3>{translate("courses")}</h3>

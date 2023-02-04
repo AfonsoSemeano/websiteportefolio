@@ -37,15 +37,15 @@ function ProjectCard(props) {
     return (
         <Card id={props.id} style={{ width: '24rem' }}>
             <Card.Img variant="top" src={getImageURL()} />
-            <Card.Body>
+            <Card.Body className='bg-terciary'>
                 <Card.Title>{translate("title")}</Card.Title>
                 <Card.Text>
                     {translate("desc")}
                 </Card.Text>
                 <div className="d-flex justify-content-center flex-wrap">
-                    <Button variant="primary me-3">{translateButton("openproject")}</Button>
-                    <Button variant="primary">{translateButton("reportbugs")}</Button>
-                    <Button variant="primary mt-2">{translateButton("givefeedback")}</Button>
+                    <Button variant="primary me-3 text-white fw-bold">{translateButton("openproject")}</Button>
+                    <Button variant="primary text-white fw-bold">{translateButton("reportbugs")}</Button>
+                    <Button variant="primary mt-2 text-white fw-bold">{translateButton("givefeedback")}</Button>
                 </div>
             </Card.Body>
         </Card>

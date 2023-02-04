@@ -1,19 +1,23 @@
 
 
 $theme-colors: (
-    "primary": #A7727D,//#007bff,
-    "secondary": #EDDBC7,//#6c757d,
+    "primary": #333333,//#007bff,
+    "clear-primary": #FFFFFF,
+    "secondary": #E5E5E5,//#6c757d,
     "success": #28a745,
     "info": #17a2b8,
     "warning": #ffc107,
     "danger": #dc3545,
     "light": #faf8f9,
     "dark": #343a40,
-    "terciary": #F8EAD8,
+    "terciary": #E5E5E5,
+    "grey": #5e5e5e,
+    "light-grey": #E5E5E5,
 );
 
-$primary: #A7727D;
-$secondary: #EDDBC7;
+$primary: #FFFFFF;
+$clear-primary: #B48790;
+$secondary: #FFFFFF;
 $terciary: #F8EAD8;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
@@ -23,6 +27,7 @@ $terciary: #F8EAD8;
 
 body {
     background: $secondary !important;
+    font-family: sans-serif;
 }
 
 .login-register-box-styling {
@@ -33,7 +38,7 @@ body {
 }
 
 .navbar-text-color  {
-    color: #faf8f9;
+    color: white;
 }
 
 .transparent-bg {
@@ -85,7 +90,7 @@ body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 80px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
 }
 
@@ -98,4 +103,6 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+    background-color: $clear-primary;
+}

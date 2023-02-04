@@ -72,7 +72,10 @@ const translationState = {
       "invalidpasswordcharacters": '',
       "invalidusernamelength": '',
       "characterslong": '',
-      "invalidpasswordlength": ''
+      "invalidpasswordlength": '',
+      "wrongpassword": '',
+      "usernamenotfound": '',
+      "usernamealreadyexists": '',
     }
   };
 
