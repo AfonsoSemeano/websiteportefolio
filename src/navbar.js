@@ -45,10 +45,10 @@ function TopNavbar(props) {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">
                 <div className='d-flex flex-row'>
-                  <Nav.Link href="#home" className='navbar-text-color fw-semibold'>{translate("home")}</Nav.Link>
-                  <Nav.Link href="#aboutme" className='mx-2 navbar-text-color fw-semibold'>{translate("aboutme")}</Nav.Link>
+                  <Nav.Link href={"/home/" + lang} className='navbar-text-color fw-semibold'>{translate("home")}</Nav.Link>
+                  <Nav.Link href={"/aboutme/" + lang} className='mx-2 navbar-text-color fw-semibold'>{translate("aboutme")}</Nav.Link>
                   <div className='d-flex flex-row'>
-                    <Nav.Link href="#myprojects" className='navbar-text-color fw-semibold'>{translate("myprojects")}</Nav.Link>
+                    <Nav.Link href={"/myprojects/" + lang} className='navbar-text-color fw-semibold'>{translate("myprojects")}</Nav.Link>
                     <Dropdown className='closer-arrow'>
                       <Dropdown.Toggle variant='dark' className='transparent-bg border-0 hover-background-dropdown mt-1'></Dropdown.Toggle>
                       <Dropdown.Menu id="nav-dropdown" className='bg-primary'>
@@ -68,11 +68,11 @@ function TopNavbar(props) {
                 </div>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? '': 'd-none')}>
                   <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
-                  <Nav.Link href="#" className='navbar-text' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
                 </div>
                 <LanguageDropdown languageText={translate("language")}>
-                  <FlagItem flagSrc='portugal-icon-flag.png' flagChars='PT' className='mt-2'/>
-                  <FlagItem flagSrc='england-icon-flag.png' flagChars='EN' className='mb-2'/>
+                  <FlagItem flagSrc='../portugal-icon-flag.png' flagChars='PT' className='mt-2'/>
+                  <FlagItem flagSrc='../england-icon-flag.png' flagChars='EN' className='mb-2'/>
                 </LanguageDropdown>
               </Navbar.Collapse>
             </Navbar.Collapse>
@@ -102,9 +102,9 @@ function TopNavbar(props) {
     }
 
     return (
-      <div class="dropdown">
-        <div class="dropbtn navbar-text navbar-text-color fw-semibold" onClick={() => toggleDropdown()}>{props.languageText}</div>
-        <div class={"dropdown-content bg-primary rounded border border-grey " + (dropdownOn ? "d-block" : "d-none")}>
+      <div className="dropdown">
+        <div className="dropbtn navbar-text navbar-text-color fw-semibold" onClick={() => toggleDropdown()}>{props.languageText}</div>
+        <div className={"dropdown-content bg-primary rounded border border-grey " + (dropdownOn ? "d-block" : "d-none")}>
           {props.children}
         </div>
       </div>

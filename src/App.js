@@ -8,11 +8,14 @@ import TopNavbar from './navbar';
 import AboutMe from './aboutme';
 import MyProjects from './myprojects';
 import Footer from './footer';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet, useOutletContext } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { getAllTranslations, translationState } from './translations';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import NoPage from './nopage';
+
+const allLanguages = ["pt", "en"];
 
 
 //TODO: Passar a chamada à BD para o início da App e passar a variável como uma prop?????
@@ -90,36 +93,60 @@ function MainApp() {
     <>
       <div id="top" />
       <TopNavbar authenticateCookie={authenticateCookie} fullTranslation={translation["navbar"]} loginRegisterTranslation={translation["login-registo"]}/>
-      <Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
+      
+      <Outlet context={[translation, setTranslation]}/>
+
+
+      {/*<Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
       <Divider />
       <AboutMe fullTranslation={translation["aboutme"]}/>
       <Divider />
       <MyProjects fullTranslation={translation["myprojects"]}/>
-      <Divider />
+      <Divider />*/}
+
       <Footer fullTranslation={translation["footer"]}/>
     </>
   );
 }
 
 
-/*TODO: 
-Passar a prop 'lang' no MainApp que trata da tradução de línguas.
-
-OU
-
-Buscar a lang ao URL e usá-la como string.
-*/
-
 function App() {
+  
   return (
     <div style={{ backgroundColor: 'rgb(248, 249, 250)' }}>
       <Routes>
-        <Route path="/:lang" element={<MainApp />} />
-        <Route
-          path="*" element={<Navigate to="/pt" replace/>} />
+        <Route path="/" element={<MainApp />}>
+          <Route index element={<Navigate to="/home/pt" replace/>} />
+          <Route path="/:page/:lang" element={<ValidateFullRoute />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
       </Routes>
     </div>
   );
+}
+
+function ValidateFullRoute() {
+  let {lang} = useParams();
+  let {page} = useParams();
+
+  let [translation, setTranslation] = useOutletContext();
+
+  for (const language of allLanguages) {
+    if (lang === language) {
+      switch (page) {
+        case "home":
+          return <Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>;
+        case "aboutme":
+          return <AboutMe fullTranslation={translation["aboutme"]}/>;
+        case "myprojects":
+          return <MyProjects fullTranslation={translation["myprojects"]}/>;
+        default:
+          break;
+      }
+      return <NoPage />;
+    }
+  } 
+  return <NoPage />;
 }
 
 export default App;
