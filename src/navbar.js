@@ -66,8 +66,8 @@ function TopNavbar(props) {
                   <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleRegisterBox()}}>{translate("register")}</Nav.Link>
                 </div>
                 <div className={'d-flex flex-row align-items-center ' + (props.userWasFetched === "unknown" ? 'd-none': (props.userWasFetched === "true" ? '' : 'd-none'))}>
-                  <Nav.Link href="#" className='me-3'>{translate("hello")} {props.username}!</Nav.Link>
-                  <Nav.Link href="#" className='navbar-text navbar-text-color' onClick={() => { Cookies.remove('userid'); window.location.reload();}}>{translate("logout")}</Nav.Link>
+                  <div href="#" className='me-3'>{translate("hello")} {props.username}!</div>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold' onClick={() => { Cookies.remove('userid'); window.location.reload();}}>{translate("logout")}</Nav.Link>
                 </div>
                 <LanguageDropdown languageText={translate("language")}>
                   <FlagItem flagSrc='../portugal-icon-flag.png' flagChars='PT' className='mt-2'/>
@@ -87,7 +87,7 @@ function TopNavbar(props) {
     return (
       <NavDropdown.Item href={props.flagChars.toLowerCase()} className={`d-flex flex-row align-items-center ${props.className}`}>
         <img src={props.flagSrc} alt="img" width="30" height="30" />
-        <div className='ms-1 text-white fw-bold'>{props.flagChars}</div>
+        <div className='ms-1 fw-bold'>{props.flagChars}</div>
       </NavDropdown.Item>
     );
   }
