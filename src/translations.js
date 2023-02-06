@@ -76,6 +76,10 @@ const translationState = {
       "wrongpassword": '',
       "usernamenotfound": '',
       "usernamealreadyexists": '',
+    },
+    'nopage': {
+      "error404": '',
+      "pagenotfound": '',
     }
   };
 

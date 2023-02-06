@@ -117,7 +117,7 @@ function App() {
         <Route path="/" element={<MainApp />}>
           <Route index element={<Navigate to="/home/pt" replace/>} />
           <Route path="/:page/:lang" element={<ValidateFullRoute />} />
-          <Route path="*" element={<NoPage />} />
+          <Route path="*" element={<Navigate to="/nopage/en" replace/>} />
         </Route>
       </Routes>
     </div>
@@ -139,13 +139,15 @@ function ValidateFullRoute() {
           return <AboutMe fullTranslation={translation["aboutme"]}/>;
         case "myprojects":
           return <MyProjects fullTranslation={translation["myprojects"]}/>;
+        case "nopage":
+          return <NoPage fullTranslation={translation["nopage"]}/>;
         default:
           break;
       }
       return <NoPage />;
     }
   } 
-  return <NoPage />;
+  return <Navigate to="/nopage/en" replace/>;
 }
 
 export default App;
