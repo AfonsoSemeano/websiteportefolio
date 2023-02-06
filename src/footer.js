@@ -9,7 +9,7 @@ function Footer(props) {
     }
 
     return (
-        <div className='bg-primary shadow-sm footer'>
+        <div className='bg-primary shadow-sm'>
             <Container>
                 <Row>
                     <Col className="d-flex align-items-center navbar-text-color fw-semibold">
