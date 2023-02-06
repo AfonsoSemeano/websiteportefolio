@@ -38,7 +38,7 @@ function TopNavbar(props) {
       <>
         <Navbar bg="primary" expand="lg" sticky="top" className="border-bottom border-primary navbar-text-color shadow-sm">
           <Container fluid>
-            <Navbar.Brand href="#home" className='navbar-text-color fw-semibold'>Afonso Semeano</Navbar.Brand>
+            <Navbar.Brand href={"/home/" + lang} className='navbar-text-color fw-semibold'>Afonso Semeano</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className='text-white'/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto ">
