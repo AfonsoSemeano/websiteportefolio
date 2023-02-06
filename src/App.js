@@ -59,20 +59,6 @@ function MainApp() {
     });
   }, [lang]);
 
-  useEffect(() => {
-    const userIdEnc = Cookies.get("userid");
-    let req = new XMLHttpRequest();
-    req.responseType = "text";
-    req.onload = function() {
-      if (req.status !== 200) {
-        const expiredTime = new Date(new Date().getTime() - 1);
-        Cookies.set("userid", "", {expires: expiredTime});
-      } else {
-        
-      }
-    }
-  }, []);
-
   function authenticateCookie(toggleDivs) {
     const userIdEnc = Cookies.get("userid");
     let req = new XMLHttpRequest();

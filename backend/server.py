@@ -103,7 +103,7 @@ def checkObjectId():
 		return Response('Id is invalid.', status=NOT_FOUND)
 	for document in credentials.find():
 		if bcrypt.check_password_hash(objectEncId, str(document['_id'])):
-			return Response('Id is valid.' + document['username'], status=OK)
+			return Response(document['username'], status=OK)
 	return Response('Id is invalid.', status=NOT_FOUND)
 
 # Running app

@@ -62,6 +62,7 @@ function TopNavbar(props) {
               </Nav>
               <Navbar.Collapse className='justify-content-end'>
                 <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? 'd-none': '')}>
+                  <img src="../loading-gif.gif" alt="img" width="30" height="30" className='me-3'/>
                   <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleLoginBox()}}>{translate("login")}</Nav.Link>
                   <div className="mx-1">/</div>
                   <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleRegisterBox()}}>{translate("register")}</Nav.Link>
