@@ -31,7 +31,7 @@ function Jumbotron(props) {
 
 
   return (
-    <div className='bg-secondary'>
+    <div className='bg-secondary content'>
       <Container id="home" className="py-5">
         <h1 className="display-5 fw-bold">{translate("hello")}!</h1>
         <p className="fs-4">{translate("welcome")}</p>
@@ -95,7 +95,6 @@ function MainApp() {
       <TopNavbar authenticateCookie={authenticateCookie} fullTranslation={translation["navbar"]} loginRegisterTranslation={translation["login-registo"]}/>
       
       <Outlet context={[translation, setTranslation]}/>
-
 
       {/*<Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
       <Divider />

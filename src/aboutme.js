@@ -9,7 +9,7 @@ function AboutMe(props) {
     }
 
     return (
-        <div className='bg-secondary'>
+        <div className='bg-secondary content'>
             <h1 id="aboutme" className='fw-semibold ms-2'>{translate("aboutme")}</h1>
             <Container >
                 <p>

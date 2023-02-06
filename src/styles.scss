@@ -25,9 +25,22 @@ $terciary: #F8EAD8;
 // Why is this import not working?
 //@import "node_modules/bootstrap/scss/_functions.scss";
 
+html, body, #root, #root > div {
+    height: 100%!important;
+}
+
+#root > div {
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     background: $secondary !important;
     font-family: sans-serif;
+}
+
+.content {
+    flex: 1 0 auto;
 }
 
 .login-register-box-styling {
