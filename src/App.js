@@ -50,6 +50,8 @@ function Divider() {
 
 function MainApp() {
   let { lang } = useParams();
+  const [userWasFetched, setUserWasFetched] = useState("unknown");
+  const [username, setUsername] = useState(undefined);
 
   const [translation, setTranslation] = useState(translationState);
 
@@ -59,7 +61,8 @@ function MainApp() {
     });
   }, [lang]);
 
-  function authenticateCookie(toggleDivs) {
+  function authenticateCookie() {
+    setUserWasFetched("unknown");
     const userIdEnc = Cookies.get("userid");
     let req = new XMLHttpRequest();
     req.responseType = "text";
@@ -67,8 +70,10 @@ function MainApp() {
       if (req.status !== 200) {
         const expiredTime = new Date(new Date().getTime() - 1);
         Cookies.set("userid", "", {expires: expiredTime});
+        setUserWasFetched("false");
       } else {
-        toggleDivs();
+        setUserWasFetched("true");
+        setUsername(req.response);
       }
     }
     req.open('POST', '/checkobjectid');
@@ -78,7 +83,7 @@ function MainApp() {
   return (
     <>
       <div id="top" />
-      <TopNavbar authenticateCookie={authenticateCookie} fullTranslation={translation["navbar"]} loginRegisterTranslation={translation["login-registo"]}/>
+      <TopNavbar authenticateCookie={authenticateCookie} username={username} userWasFetched={userWasFetched} fullTranslation={translation["navbar"]} loginRegisterTranslation={translation["login-registo"]}/>
       
       <Outlet context={[translation, setTranslation]}/>
 

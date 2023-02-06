@@ -10,10 +10,9 @@ function TopNavbar(props) {
 
   const [showLoginBox, setShowLoginBox] = useState(false);
   const [showRegisterBox, setShowRegisterBox] = useState(false);
-  const [showUserDiv, setShowUserDiv] = useState(false);
 
   useEffect(() => {
-    props.authenticateCookie(toggleUserDiv);
+    props.authenticateCookie();
   }, []);
   
   function translate(text) {
@@ -30,8 +29,7 @@ function TopNavbar(props) {
     setShowRegisterBox(showRegisterBox => !showRegisterBox);
   }
 
-  function toggleUserDiv() {
-    setShowUserDiv(showUserDiv => !showUserDiv);
+  function closeBoxes() {
     setShowLoginBox(false);
     setShowRegisterBox(false);
   }
@@ -61,15 +59,15 @@ function TopNavbar(props) {
                 </div>
               </Nav>
               <Navbar.Collapse className='justify-content-end'>
-                <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? 'd-none': '')}>
-                  <img src="../loading-gif.gif" alt="img" width="30" height="30" className='me-3'/>
+                <img src="../loading-gif.gif" alt="img" width="30" height="30" className={'me-3 ' + (props.userWasFetched === "unknown" ? '' : 'd-none')}/>
+                <div className={'d-flex flex-row align-items-center ' + (props.userWasFetched === "unknown" ? 'd-none': (props.userWasFetched === "false" ? '' : 'd-none'))}>
                   <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleLoginBox()}}>{translate("login")}</Nav.Link>
                   <div className="mx-1">/</div>
                   <Nav.Link href="#" className='navbar-text navbar-text-color fw-semibold ' onClick={() => {toggleRegisterBox()}}>{translate("register")}</Nav.Link>
                 </div>
-                <div className={'d-flex flex-row align-items-center ' + (showUserDiv ? '': 'd-none')}>
-                  <Nav.Link href="#" className='me-3'>Hello, UserLogged!</Nav.Link>
-                  <Nav.Link href="#" className='navbar-text navbar-text-color' onClick={() => { Cookies.remove('userid'); toggleUserDiv();}}>Log out</Nav.Link>
+                <div className={'d-flex flex-row align-items-center ' + (props.userWasFetched === "unknown" ? 'd-none': (props.userWasFetched === "true" ? '' : 'd-none'))}>
+                  <Nav.Link href="#" className='me-3'>Hello, {props.username}!</Nav.Link>
+                  <Nav.Link href="#" className='navbar-text navbar-text-color' onClick={() => { Cookies.remove('userid'); window.location.reload();}}>Log out</Nav.Link>
                 </div>
                 <LanguageDropdown languageText={translate("language")}>
                   <FlagItem flagSrc='../portugal-icon-flag.png' flagChars='PT' className='mt-2'/>
@@ -79,8 +77,8 @@ function TopNavbar(props) {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <LoginBox id="login-register" toggleUserDiv={toggleUserDiv} show={showLoginBox} fullTranslation={props.loginRegisterTranslation}/>
-        <RegisterBox show={showRegisterBox} toggleUserDiv={toggleUserDiv} fullTranslation={props.loginRegisterTranslation}/>
+        <LoginBox id="login-register" authenticateCookie={props.authenticateCookie} closeBoxes={closeBoxes} show={showLoginBox} fullTranslation={props.loginRegisterTranslation}/>
+        <RegisterBox show={showRegisterBox} authenticateCookie={props.authenticateCookie} closeBoxes={closeBoxes} fullTranslation={props.loginRegisterTranslation}/>
       </>
     );
   }

@@ -36,7 +36,6 @@ function LoginBox(props) {
     }}
 
     onSubmit={(values, { setSubmitting }) => {
-      console.log("Enter in submit function ", values);
       let req = new XMLHttpRequest();
       req.responseType = "text";
       req.onload = function() {
@@ -54,7 +53,8 @@ function LoginBox(props) {
             const in24Hours = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
             Cookies.set('userid', this.response, {expires: in24Hours});
           }
-          props.toggleUserDiv();
+          props.closeBoxes();
+          props.authenticateCookie();
         }
       }
       req.open('POST', '/credentials/login');
@@ -158,7 +158,6 @@ function RegisterBox(props) {
     }}
 
     onSubmit={(values, { setSubmitting }) => {
-      console.log("Enter in submit function ", values);
       let req = new XMLHttpRequest();
       req.responseType = "text";
       req.onload = function() {
@@ -174,7 +173,8 @@ function RegisterBox(props) {
             const in24Hours = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
             Cookies.set('userid', this.response, {expires: in24Hours});
           }
-          props.toggleUserDiv();
+          props.closeBoxes();
+          props.authenticateCookie();
         }
       }
       req.open('POST', '/credentials/register');
