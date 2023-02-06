@@ -27,6 +27,8 @@ const translationState = {
       'login': '',
       'register': '',
       'language': '',
+      'hello': '',
+      'logout': '',
     },
     'jumbotron': {
       'hello': '',
