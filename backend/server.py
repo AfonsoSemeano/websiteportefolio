@@ -114,12 +114,16 @@ def give_feedback():
 	content = bodyContent['content']
 	project = bodyContent['project']
 	date = bodyContent['date']
-	datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+	datetime_object = datetime.datetime.strptime(date, '%d-%m-%Y %H:%M:%S')
 	for document in credentials.find():
+		try:
+			bcrypt.check_password_hash(objectEncId, str(document['_id']))
+		except ValueError as e:
+			return Response('invalid user', status=NOT_FOUND)
 		if bcrypt.check_password_hash(objectEncId, str(document['_id'])):
 			feedback.insert_one({'userId': document['_id'], 'content': content, 'project': project, 'date': datetime_object})
-			return Response('Opinion added successfully!', status=OK)
-	return Response('Id is invalid.', status=NOT_FOUND)
+			return Response('success', status=OK)
+	return Response('invalid user', status=NOT_FOUND)
 
 # Running app
 if __name__ == '__main__':
