@@ -26,6 +26,7 @@ db = client.PortefolioDB
 
 translation = db.translation
 credentials = db.credentials
+feedback = db.feedback
 
 # Route for seeing a data
 @app.route('/translation/<type>', methods=['GET'])
@@ -104,6 +105,20 @@ def checkObjectId():
 	for document in credentials.find():
 		if bcrypt.check_password_hash(objectEncId, str(document['_id'])):
 			return Response(document['username'], status=OK)
+	return Response('Id is invalid.', status=NOT_FOUND)
+
+@app.route('/giveopinion', methods=['POST'])
+def give_feedback():
+	bodyContent = request.get_json()
+	objectEncId = bodyContent['userId']
+	content = bodyContent['content']
+	project = bodyContent['project']
+	date = bodyContent['date']
+	datetime_object = datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
+	for document in credentials.find():
+		if bcrypt.check_password_hash(objectEncId, str(document['_id'])):
+			feedback.insert_one({'userId': document['_id'], 'content': content, 'project': project, 'date': datetime_object})
+			return Response('Opinion added successfully!', status=OK)
 	return Response('Id is invalid.', status=NOT_FOUND)
 
 # Running app
