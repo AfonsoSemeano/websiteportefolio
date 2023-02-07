@@ -10,7 +10,7 @@ function PortfolioWebsite(props) {
     return (
         <div className="content ps-4 pt-3 pb-3 bg-secondary">
             <h1>{translate("title")}</h1>
-            <div className="ms-5">
+            <div className="ms-sm-5">
                 <p className="fw-bold fs-4">{translate("reason")}</p> 
                 <p>{translate("reasondesc")}</p>
                 <p className="fw-bold fs-4">{translate("howcreated")}</p>

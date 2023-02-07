@@ -12,11 +12,11 @@ function Footer(props) {
         <div className='bg-primary shadow-sm'>
             <Container>
                 <Row>
-                    <Col className="d-flex align-items-center navbar-text-color fw-semibold">
+                    <Col className="d-none d-md-flex align-items-center navbar-text-color fw-semibold">
                         <p>{translate("madeby")}: Afonso Semeano</p>
                     </Col>
-                    <Col></Col>
-                    <Col>
+                    <Col className='d-none d-lg-block'></Col>
+                    <Col className='d-flex align-items-center flex-column d-md-block'>
                         <h5 className='fw-semibold navbar-text-color'>{translate("getintouch")}:</h5>
                         <p className='navbar-text-color'>Email: afonsosemeano@gmail.com</p>
                         <p className='navbar-text-color'>Linkedin: none</p>

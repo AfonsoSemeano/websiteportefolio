@@ -82,7 +82,6 @@ body {
 .dropbtn {
     background-color: rgba(0,0,0,0);
     
-    padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -144,4 +143,41 @@ body {
 .stylized-a {
     cursor: pointer;
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 992px) {
+    .login-register-box-styling {
+        margin-top: 34px;
+        width: 35%;
+    }
+
+    .nav-left-side {
+        float: left;
+        margin-top: 10px;
+    }
+
+    .nav-right-side {
+        float: right;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .login-register-box-styling {
+        margin-top: 98px;
+        width: 45%;
+    }
+
+    .nav-left-side {
+        float: left;
+        margin-top: 10px;
+    }
+
+    .nav-right-side {
+        float: right;
+        display: flex;
+        flex-direction: row;
+    }
 }

@@ -11,7 +11,7 @@ function MyProjects(props) {
     }
 
     return (
-        <Container fluid className='bg-secondary'>
+        <Container fluid className='bg-secondary content'>
             <h1 id="myprojects" className='fw-semibold'>{translate("myprojects")}</h1>
             <p className='fs-5 ms-5'>{translate("selectproject")}</p>
             <Container>
