@@ -112,6 +112,7 @@ function ProjectFeedbackArea(props) {
 
     return (
     <InputGroup className={'d-flex align-items-center flex-column bg-secondary ' + (props.hidden ? "d-none" : "")}>
+        <div className='fw-bold'>Escreva um comentário</div>
         <textarea aria-label="With textarea" value={textAreaContent} disabled={isSubmitting} onChange={handleChange} className='feedback-text-area rounded ms-1 me-1 mb-2' />
         <span className='text-danger'>{contentFeedback}</span>
         <div>
