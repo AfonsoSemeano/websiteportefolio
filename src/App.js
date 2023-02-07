@@ -36,7 +36,7 @@ function Jumbotron(props) {
       <Container id="home" className="py-5">
         <h1 className="display-5 fw-bold">{translate("hello")}!</h1>
         <p className="fs-4">{translate("welcome")}</p>
-        <p className="fs-4">{translate("meetmeone")}<a href="#aboutme" className='text-grey'>{translate("aboutme")}</a>{translate("meetmetwo")}<a href="#myprojects" className='text-grey'>{translate("myprojects")}</a>.</p>
+        <p className="fs-4">{translate("meetmeone")}<a href={"/aboutme/" + lang} className='text-grey'>{translate("aboutme")}</a>{translate("meetmetwo")}<a href={"/myprojects/" + lang} className='text-grey'>{translate("myprojects")}</a>.</p>
         <p className='fs-4'>{translate("createaccount")}</p>
       </Container>
     </div>
