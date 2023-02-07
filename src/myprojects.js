@@ -30,6 +30,10 @@ function ProjectCard(props) {
         return props.fullTranslation[props.projectKey][text][lang];
     }
 
+    function translateOutOfScope(text) {
+        return props.fullTranslation[text][lang];
+    }
+
     function translateButton(text) {
         return props.fullTranslation[text][lang];
     }
@@ -55,7 +59,7 @@ function ProjectCard(props) {
                     <Button variant="primary text-white fw-bold" disabled={opinionActive} onClick={handleClickOpinion}>{translateButton("givefeedback")}</Button>
                 </div>
             </Card.Body>
-            <ProjectFeedbackArea setOpinionActive={setOpinionActive} hidden={!opinionActive} projectKey="portefolio"/>
+            <ProjectFeedbackArea translate={translateOutOfScope} setOpinionActive={setOpinionActive} hidden={!opinionActive} projectKey="portefolio"/>
         </Card>
     );
 }
@@ -82,7 +86,7 @@ function ProjectFeedbackArea(props) {
     function sendFeedback() {
         setIsSubmitting(true);
         if (textAreaContent === "") {
-            setContentFeedback("Por favor, escreva algo para dar a sua opinião");
+            setContentFeedback(props.translate("typesomething"));
             setIsSubmitting(false);
             return;
         }
@@ -91,14 +95,12 @@ function ProjectFeedbackArea(props) {
         req.onload = function () {
             if (req.status === 200) {
                 if (this.responseText === "success") {
-                    console.log("Feedback enviado com sucesso");
                     props.setOpinionActive(false);
                     setTextAreaContent("");
                 }
             } else {
                 if (this.responseText === "invalid user") {
-                    console.log("Inside invalid user");
-                    setContentFeedback("Por favor, faça login para dar a sua opinião");
+                    setContentFeedback(props.translate("invaliduser"));
                 }
             }
             setIsSubmitting(false);
@@ -112,12 +114,12 @@ function ProjectFeedbackArea(props) {
 
     return (
     <InputGroup className={'d-flex align-items-center flex-column bg-secondary ' + (props.hidden ? "d-none" : "")}>
-        <div className='fw-bold'>Escreva um comentário</div>
+        <div className='fw-bold'>{props.translate("writecomment")}</div>
         <textarea aria-label="With textarea" value={textAreaContent} disabled={isSubmitting} onChange={handleChange} className='feedback-text-area rounded ms-1 me-1 mb-2' />
-        <span className='text-danger'>{contentFeedback}</span>
+        <span className='text-danger mb-2'>{contentFeedback}</span>
         <div>
-            <Button variant="primary text-white fw-bold rounded mb-2 me-2" onClick={handleClickCancel} disabled={isSubmitting}>Cancelar</Button>
-            <Button variant="primary text-white fw-bold rounded mb-2" disabled={isSubmitting} onClick={handleClickSubmit} >Submeter</Button>
+            <Button variant="primary text-white fw-bold rounded mb-2 me-2" onClick={handleClickCancel} disabled={isSubmitting}>{props.translate("cancel")}</Button>
+            <Button variant="primary text-white fw-bold rounded mb-2" disabled={isSubmitting} onClick={handleClickSubmit} >{props.translate("submit")}</Button>
             <img src="../loading-gif.gif" className="loading-gif ms-2 mt-1" hidden={!isSubmitting} alt="loading-gif" width="30" height="30" />
         </div>
     </InputGroup>);

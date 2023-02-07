@@ -58,7 +58,12 @@ const translationState = {
         'title': '',
         'desc': '',
         'imgurl': ''
-      }
+      },
+      'cancel': '',
+      'submit': '',
+      'writecomment': '',
+      'invaliduser': '',
+      'typesomething': '',
     },
     'footer': {
       'madeby': '',
