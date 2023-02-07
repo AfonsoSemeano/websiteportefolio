@@ -14,6 +14,7 @@ import { getAllTranslations, translationState } from './translations';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import NoPage from './nopage';
+import PortfolioWebsite from './portfoliowebsite';
 
 const allLanguages = ["pt", "en"];
 
@@ -87,13 +88,6 @@ function MainApp() {
       
       <Outlet context={[translation, setTranslation]}/>
 
-      {/*<Jumbotron title="Olá!" fullTranslation={translation["jumbotron"]}/>
-      <Divider />
-      <AboutMe fullTranslation={translation["aboutme"]}/>
-      <Divider />
-      <MyProjects fullTranslation={translation["myprojects"]}/>
-      <Divider />*/}
-
       <Footer fullTranslation={translation["footer"]}/>
     </>
   );
@@ -130,6 +124,8 @@ function ValidateFullRoute() {
           return <AboutMe fullTranslation={translation["aboutme"]}/>;
         case "myprojects":
           return <MyProjects fullTranslation={translation["myprojects"]}/>;
+        case "portfoliowebsite":
+          return <PortfolioWebsite fullTranslation={translation["portfoliowebsite"]}/>;
         case "nopage":
           return <NoPage fullTranslation={translation["nopage"]}/>;
         default:

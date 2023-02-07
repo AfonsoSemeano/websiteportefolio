@@ -23,7 +23,6 @@ function MyProjects(props) {
 
 function ProjectCard(props) {
     let { lang } = useParams();
-    let [textAreaContent, setTextAreaContent] = useState("");
     let [opinionActive, setOpinionActive] = useState(false);
 
     function translate(text) {
@@ -55,7 +54,7 @@ function ProjectCard(props) {
                     {translate("desc")}
                 </Card.Text>
                 <div className="d-flex justify-content-center flex-wrap">
-                    <Button variant="primary me-3 text-white fw-bold">{translateButton("openproject")}</Button>
+                    <Button variant="primary me-3 text-white fw-bold" href='/portfoliowebsite/pt'>{translateButton("openproject")}</Button>
                     <Button variant="primary text-white fw-bold" disabled={opinionActive} onClick={handleClickOpinion}>{translateButton("givefeedback")}</Button>
                 </div>
             </Card.Body>

@@ -140,3 +140,8 @@ body {
     border: 2px solid $primary;
     box-shadow: 0 0 10px $primary;
 }
+
+.stylized-a {
+    cursor: pointer;
+    text-decoration: underline;
+}

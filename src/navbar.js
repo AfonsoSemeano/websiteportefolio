@@ -50,9 +50,7 @@ function TopNavbar(props) {
                     <Dropdown className='closer-arrow'>
                       <Dropdown.Toggle variant='dark' className='transparent-bg border-0 hover-background-dropdown mt-1'></Dropdown.Toggle>
                       <Dropdown.Menu id="nav-dropdown" className='bg-primary'>
-                        <NavDropdown.Item href="#portefoliowebsite" className='navbar-text-color fw-semibold'>{translate("portefoliowebsite")}</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2" className='navbar-text-color fw-semibold'>2nd Project</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3" className='navbar-text-color fw-semibold'>3rd Project</NavDropdown.Item>
+                        <NavDropdown.Item href={`/myprojects/${lang}#portefoliowebsite`} className='navbar-text-color fw-semibold'>{translate("portefoliowebsite")}</NavDropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>
