@@ -74,14 +74,13 @@ function LoginBox(props) {
       isSubmitting,
     }) => (
       <Form className={'login-register-box-styling d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4 me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
-        <h4 className='fw-bold'>LOGIN</h4>
+        <h4 className='fw-bold'>{translate("login")}</h4>
         <Form.Group>
-          <Form.Label>Username</Form.Label>
+          <Form.Label>{translate("username")}</Form.Label>
           <Form.Control
             required
             type="text"
             name='username'
-            placeholder="Your username"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.username}
@@ -92,12 +91,11 @@ function LoginBox(props) {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>{translate("password")}</Form.Label>
           <Form.Control
             required
             type="password"
             name='password'
-            placeholder='Your password'
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
@@ -194,9 +192,9 @@ function RegisterBox(props) {
       isSubmitting,
     }) => (
       <Form className={'login-register-box-styling d-flex flex-column align-items-center px-3 pb-2 border-start border-bottom border-end border-primary border-4 me-3 bg-terciary ' + (props.show ? '': 'd-none')}  onSubmit={handleSubmit}>
-        <h4 className='fw-bold'>REGISTO</h4>
+        <h4 className='fw-bold'>{translate("register")}</h4>
         <Form.Group>
-          <Form.Label>Username</Form.Label>
+          <Form.Label>{translate("username")}</Form.Label>
           <Form.Control
             required
             type="text"
@@ -212,7 +210,7 @@ function RegisterBox(props) {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>{translate("password")}</Form.Label>
           <Form.Control
             required
             type="password"

@@ -38,15 +38,15 @@ function TopNavbar(props) {
       <>
         <Navbar bg="primary" expand="lg" sticky="top" className="border-bottom border-primary navbar-dark navbar-text-color shadow-sm">
           <Container fluid>
-            <Navbar.Brand href={"/home/" + lang} className='navbar-text-color fw-semibold'>Afonso Semeano</Navbar.Brand>
+            <Navbar.Brand href={"/home/" + lang} className='navbar-text-color navbar-text fw-semibold'>Afonso Semeano</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => closeBoxes()} className='text-white'/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto nav-left-side">
                 <div className='d-flex flex-column flex-sm-row'>
-                  <Nav.Link href={"/home/" + lang} className='navbar-text-color fw-semibold'>{translate("home")}</Nav.Link>
-                  <Nav.Link href={"/aboutme/" + lang} className='mx-sm-3 mx-lg-2 navbar-text-color fw-semibold pt-0 pt-sm-2'>{translate("aboutme")}</Nav.Link>
+                  <Nav.Link href={"/home/" + lang} className='navbar-text-color navbar-text fw-semibold'>{translate("home")}</Nav.Link>
+                  <Nav.Link href={"/aboutme/" + lang} className='mx-sm-3 mx-lg-2 navbar-text-color navbar-text fw-semibold pt-0 pt-sm-2'>{translate("aboutme")}</Nav.Link>
                   <div className='d-flex flex-row'>
-                    <Nav.Link href={"/myprojects/" + lang} className='navbar-text-color fw-semibold pt-0 pt-sm-2'>{translate("myprojects")}</Nav.Link>
+                    <Nav.Link href={"/myprojects/" + lang} className='navbar-text-color navbar-text fw-semibold pt-0 pt-sm-2'>{translate("myprojects")}</Nav.Link>
                     <Dropdown className='closer-arrow'>
                       <Dropdown.Toggle variant='dark' className='transparent-bg border-0 hover-background-dropdown pt-1 pt-sm-2 ps-2 d-none d-lg-block'></Dropdown.Toggle>
                       <Dropdown.Menu id="nav-dropdown" className='bg-primary'>
@@ -100,8 +100,8 @@ function TopNavbar(props) {
 
     return (
       <div className="dropdown">
-        <div className="dropbtn navbar-text navbar-text-color fw-semibold ps-sm-3 pt-sm-2 pt-0" onClick={() => toggleDropdown()}>{props.languageText}</div>
-        <div className={"dropdown-content bg-primary rounded border border-grey " + (dropdownOn ? "d-block" : "d-none")}>
+        <div className="dropbtn navbar-text navbar-text-color fw-semibold ps-sm-3 pt-sm-2 pt-0 pe-sm-3" onClick={() => toggleDropdown()}>{props.languageText}</div>
+        <div className={"dropdown-content bg-primary rounded border border-grey  " + (dropdownOn ? "d-block" : "d-none")}>
           {props.children}
         </div>
       </div>

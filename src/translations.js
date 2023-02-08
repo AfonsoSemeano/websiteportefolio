@@ -83,6 +83,8 @@ const translationState = {
       "wrongpassword": '',
       "usernamenotfound": '',
       "usernamealreadyexists": '',
+      "login": '',
+      "register": '',
     },
     'portfoliowebsite': {
       'title': '',
