@@ -11,7 +11,7 @@ function AboutMe(props) {
     return (
         <div className='bg-secondary content'>
             <h1 id="aboutme" className='fw-semibold ms-2'>{translate("aboutme")}</h1>
-            <Container >
+            <div className='ms-5'>
                 <p>
                     {translate("pone")}
                     <br />
@@ -34,7 +34,7 @@ function AboutMe(props) {
                 </ul>
                 <br />
 
-            </Container>
+            </div>
         </div>
     );
 }
