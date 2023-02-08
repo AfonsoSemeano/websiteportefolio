@@ -46,7 +46,7 @@ body {
 .login-register-box-styling {
     width: 20%;
     position: fixed;
-    top: 57px;
+    top: 60px;
     right: 0;
 }
 
@@ -164,20 +164,16 @@ body {
     }
 }
 
+@media screen and (max-width: 768px) {
+    .login-register-box-styling {
+        margin-top: 54px;
+        width: 35%;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .login-register-box-styling {
         margin-top: 114px;
         width: 45%;
-    }
-
-    .nav-left-side {
-        float: left;
-        margin-top: 10px;
-    }
-
-    .nav-right-side {
-        float: right;
-        display: flex;
-        flex-direction: row;
     }
 }
