@@ -1,62 +1,56 @@
-### `npm start`
+# Welcome
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is my portfolio website.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Keep in mind this is my first website created outside of college, so naturally it might not be in its best conditions. However, I learned a lot with it, so I'm proud enough to share my website's code.
 
-### `npm test`
+This was created using React-Bootstrap and Flask.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+To run this site you need:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- A mongoDB database with all the translation info
+- Install all node packages
+- 2 terminals
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+What to type in these terminals?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Terminal 1: 
 
-### `npm run eject`
+* npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Terminal 2:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* cd backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* ./venv/Scripts/activate
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* flask run
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+WHAT TO DO IF YOU ARE IN A DIFFERENT COMPUTER AND YOUR MONGO DATABASE DOESN'T HAVE THE TRANSLATIONS IN IT?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Install MongoDB Atlas
 
-### Code Splitting
+2. Create a new database named exactly like this: PortefolioDB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Connect to the database and make sure the host is the same as in the line 24 in the server.py file:
 
-### Analyzing the Bundle Size
+```py
+client = MongoClient('localhost', 27017)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Create a new collection in that database with this exact name: translation
 
-### Making a Progressive Web App
+5. Go to Add Data, then go to Import file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. Choose the translations.json file in the project.
 
-### Advanced Configuration
+And now you should be able to see the translations in my project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+7. If you cant see it, then probably you need to add two more collections:
 
-### Deployment
+    * credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    * feedback
