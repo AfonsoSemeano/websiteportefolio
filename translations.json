@@ -1,0 +1,316 @@
+[{
+  "_id": {
+    "$oid": "631f38742d3b952dc37fd2b6"
+  },
+  "home": {
+    "pt": "Início",
+    "en": "Home"
+  },
+  "aboutme": {
+    "pt": "Sobre Mim",
+    "en": "About Me"
+  },
+  "myprojects": {
+    "pt": "Os meus projetos",
+    "en": "My Projects"
+  },
+  "portefoliowebsite": {
+    "pt": "Website de Portefólio",
+    "en": "Portefolio Website"
+  },
+  "login": {
+    "pt": "Login",
+    "en": "Login"
+  },
+  "register": {
+    "pt": "Registo",
+    "en": "Register"
+  },
+  "language": {
+    "pt": "Língua",
+    "en": "Language"
+  },
+  "type": "navbar",
+  "hello": {
+    "pt": "Olá,",
+    "en": "Hello,"
+  },
+  "logout": {
+    "pt": "Terminar sessão",
+    "en": "Log out"
+  }
+},{
+  "_id": {
+    "$oid": "631f389e2d3b952dc37fd2b7"
+  },
+  "type": "jumbotron",
+  "welcome": {
+    "pt": "Bem-vindo ao meu 1º website de portefólio!",
+    "en": "Welcome to my 1st portefolio website!"
+  },
+  "aboutme": {
+    "pt": "Sobre mim",
+    "en": "About me"
+  },
+  "myprojects": {
+    "pt": "Os meus projetos",
+    "en": "My Projects"
+  },
+  "createaccount": {
+    "pt": "Por favor, cria uma conta aqui no site para depois poderes postar reviews sobre os meus projetos. Obrigado!",
+    "en": "Please, create an account in my website so you can post reviews about my projects. Thank you!"
+  },
+  "meetmeone": {
+    "pt": "Aqui podes conhecer quem eu sou na página do ",
+    "en": "Here you can find about me in the page "
+  },
+  "meetmetwo": {
+    "pt": " e os meus projetos que fiz até à data na página ",
+    "en": " and my projects I've created to date here: "
+  },
+  "hello": {
+    "pt": "Olá",
+    "en": "Hello"
+  }
+},{
+  "_id": {
+    "$oid": "631f3ce32d3b952dc37fd2b8"
+  },
+  "type": "aboutme",
+  "aboutme": {
+    "pt": "Sobre Mim",
+    "en": "About Me"
+  },
+  "pone": {
+    "pt": "Estou disposto a trabalhar como full-stack developer e também em desenvolvimento de aplicações móveis/desktop. Porém, também estou disposto a aprender línguas e frameworks novas. Acredito que a faculdade não me ensinou línguas/frameworks novas, mas ensinou-me como aprender essas ferramentas...",
+    "en": "I am willing to work as a full-stack developer and also as a mobile/desktop app developer. I'm also willing to learn new languages and frameworks. I believe college didn't taught me new languages/frameworks, but it taught me how to learn these tools."
+  },
+  "ptwo": {
+    "pt": "Ou seja, sou muito capaz de aprender línguas e frameworks que desconheça, e portanto sou muito adaptável a vários empregos pois aprendo com rapidez o que é especificamente necessário para aquele trabalho.",
+    "en": "I'm able to learn languages and frameworks I don't know, so I'm very adaptable to multiple jobs since I learn quickly what is specifically needed for that job."
+  },
+  "languages": {
+    "pt": "Línguas que tenho conhecimento:",
+    "en": "Languages I know:"
+  },
+  "courses": {
+    "pt": "Cursos e Formações",
+    "en": "Courses and Training"
+  },
+  "courseone": {
+    "pt": "Licenciatura em Engenharia Informática no Instituto Politécnico de Setúbal (IPS)",
+    "en": "Degree in Computer Engineering at the Polytechnic Institute of Setúbal (IPS)"
+  },
+  "coursetwo": {
+    "pt": "Curso de Python Udemy: The Python Mega Course: Build 10 Real World Applications",
+    "en": "Udemy Python Course: The Python Mega Course: Build 10 Real World Applications"
+  }
+},{
+  "_id": {
+    "$oid": "63209118220ec79dc44ba2ae"
+  },
+  "type": "myprojects",
+  "myprojects": {
+    "pt": "Os meus projetos",
+    "en": "My projects"
+  },
+  "selectproject": {
+    "pt": "Selecione um projeto que deseja visualizar e depois deixe a sua opinião.",
+    "en": "Select a project you wish to view then leave your feedback."
+  },
+  "openproject": {
+    "pt": "Abrir projeto",
+    "en": "Open project"
+  },
+  "reportbugs": {
+    "pt": "Reportar bugs",
+    "en": "Report bugs"
+  },
+  "givefeedback": {
+    "pt": "Dar opinião",
+    "en": "Give feedback"
+  },
+  "portefolio": {
+    "title": {
+      "pt": "Website de Portefólio",
+      "en": "Portefolio Website"
+    },
+    "desc": {
+      "pt": "Um website que expõe o meu currículo. Clique para mais detalhes sobre o processo de criação do website.",
+      "en": "A website which shows my resume. Click for more info about the website's creation process."
+    },
+    "imgurl": "https://hotmart.s3.amazonaws.com/product_contents/a42203e5-afb5-4790-bbc3-1861b3bacf2f/website1.jpg"
+  },
+  "cancel": {
+    "pt": "Cancelar",
+    "en": "Cancel"
+  },
+  "submit": {
+    "pt": "Submeter",
+    "en": "Submit"
+  },
+  "writecomment": {
+    "pt": "Escreva um comentário",
+    "en": "Type a comment"
+  },
+  "invaliduser": {
+    "pt": "Por favor, faça login para dar a sua opinião",
+    "en": "Please log in to give feedback"
+  },
+  "typesomething": {
+    "pt": "Por favor, escreva algo para dar a sua opinião",
+    "en": "Please type something to give your feedback"
+  }
+},{
+  "_id": {
+    "$oid": "63209c68220ec79dc44ba2af"
+  },
+  "type": "footer",
+  "madeby": {
+    "pt": "Website criado por",
+    "en": "Website made by"
+  },
+  "getintouch": {
+    "pt": "Entre em contacto",
+    "en": "Get in touch"
+  }
+},{
+  "_id": {
+    "$oid": "63da5fc0c020467e06c9d575"
+  },
+  "type": "login-registo",
+  "username": {
+    "pt": "Nome de Utilizador",
+    "en": "Username"
+  },
+  "password": {
+    "pt": "Palavra-Passe",
+    "en": "Password"
+  },
+  "keepsession": {
+    "pt": "Manter sessão",
+    "en": "Keep session"
+  },
+  "submit": {
+    "pt": "Submeter",
+    "en": "Submit"
+  },
+  "invalidusernamecharacters": {
+    "pt": "Nome de Utilizador inválido. Por favor, não use espaços e carateres especiais.",
+    "en": "Invalid username. Please don't use spaces and special characters."
+  },
+  "required": {
+    "pt": "Obrigatório",
+    "en": "Required"
+  },
+  "invalidpasswordcharacters": {
+    "pt": "Password inválida. Por favor, não use caracteres especiais.",
+    "en": "Invalid password. Please don't use special characters."
+  },
+  "invalidusernamelength": {
+    "pt": "Nome de Utilizador tem de ter no mínimo ",
+    "en": "Username must be at least "
+  },
+  "characterslong": {
+    "pt": " caracteres de comprimento.",
+    "en": " characters long"
+  },
+  "invalidpasswordlength": {
+    "pt": "Password tem de ter no mínimo ",
+    "en": "Password must be at least "
+  },
+  "usernamealreadyexists": {
+    "pt": "Nome de Utilizador já existe!",
+    "en": "Username already exists!"
+  },
+  "usernamenotfound": {
+    "pt": "Nome de utilizador não encontrado, por favor registe-se.",
+    "en": "Username not found, please register."
+  },
+  "wrongpassword": {
+    "pt": "Palavra-passe errada, por favor tente novamente.",
+    "en": "Wrong password, please try again."
+  },
+  "login": {
+    "pt": "LOGIN",
+    "en": "LOGIN"
+  },
+  "register": {
+    "pt": "REGISTO",
+    "en": "REGISTER"
+  }
+},{
+  "_id": {
+    "$oid": "63e0eaf168d923c7e3f9a018"
+  },
+  "type": "nopage",
+  "error404": {
+    "pt": "Erro 404",
+    "en": "404 Error"
+  },
+  "pagenotfound": {
+    "pt": "Página não encontrada.",
+    "en": "Page not found."
+  }
+},{
+  "_id": {
+    "$oid": "63e27cfc80bf27cab4daf28d"
+  },
+  "type": "portfoliowebsite",
+  "title": {
+    "pt": "Website de Portefólio",
+    "en": "Portfolio Website"
+  },
+  "reason": {
+    "pt": "Qual a razão para eu criar este site?",
+    "en": "Why did I create this website?"
+  },
+  "reasondesc": {
+    "pt": "Este site foi criado para ser um portefólio de projetos que eu tenho feito. O objetivo é mostrar o meu trabalho e o meu progresso como engenheiro de software.",
+    "en": "This website was created to be a portfolio of projects I've been creating. The point is to show my work and my progress as a software engineer."
+  },
+  "howcreated": {
+    "pt": "Como foi criado?",
+    "en": "How was it created?"
+  },
+  "howcreateddesc": {
+    "pt": "Este site foi criado com ReactJS, Bootstrap e Flask. O ReactJS foi utilizado para criar os componentes, Bootstrap para criar o layout e o Flask para servir os componentes com traduções em outras línguas, permitir login e registo e enviar comentários. Também é utilizado o Formik para auxiliar na criação de formulários e SASS para alterar os estilos com mais facilidade.",
+    "en": "This website was created with ReactJS, Bootstrap and Flask. ReactJS was used to create the components, Bootstrap for the layout and Flask to serve these components with translations in multiple languages, to allow login and registration, and send user feedback. I am also using Formik to help with form creation and SASS to have an easier time changing the styling."
+  },
+  "difficulties": {
+    "pt": "Quais foram os desafios que tive?",
+    "en": "What were my challenges?"
+  },
+  "diffresponsiveness": {
+    "pt": "Como fazer o site responsivo?",
+    "en": "How to make the website responsive?"
+  },
+  "diffloading": {
+    "pt": "Fazer carregamento dos conteúdos do website sem recarregar a página",
+    "en": "Loading website contents without reloading the page"
+  },
+  "difflanguage": {
+    "pt": "Como fazer o site ter várias línguas?",
+    "en": "How can the website support multiple languages?"
+  },
+  "difflogin": {
+    "pt": "Como fazer o site ter um sistema de login e registo?",
+    "en": "How can the website support a login and registration system?"
+  },
+  "diffbeautiful": {
+    "pt": "Ter um website esteticamente bonito",
+    "en": "Make a aesthetically beautiful website"
+  },
+  "seecode": {
+    "pt": "Como é que posso ver o código-fonte?",
+    "en": "How can I see the source code?"
+  },
+  "seecodedesc": {
+    "pt": "Pode aceder ao código por aqui:",
+    "en": "You can access the source code here:"
+  },
+  "difficultiesdesc": {
+    "pt": "Este foi o meu primeiro website feito fora do âmbito da faculdade. Portanto, tive alguns desafios pelo caminho:",
+    "en": "This was my first website created outside my university's scope. So, I had some challenges along the way:"
+  }
+}]

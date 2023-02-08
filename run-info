@@ -1,0 +1,21 @@
+This is only for me:
+
+To run this site you need:
+
+- A mongoDB database with all the translation info
+- Install all node packages
+- 2 terminals
+
+What to type in these terminals?
+
+Terminal 1: 
+
+* npm start
+
+Terminal 2:
+
+* cd backend
+
+* ./venv/Scripts/activate
+
+* flask run

@@ -30,7 +30,7 @@ function AboutMe(props) {
                 <h3>{translate("courses")}</h3>
                 <ul>
                     <li>{translate("courseone")}</li>
-                    <li>{translate("coursetwo")}</li>
+                    {/*<li>{translate("coursetwo")}</li>*/}
                 </ul>
                 <br />
 
