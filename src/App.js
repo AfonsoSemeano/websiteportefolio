@@ -131,7 +131,7 @@ function ValidateFullRoute() {
         default:
           break;
       }
-      return <NoPage />;
+      return <NoPage fullTranslation={translation["nopage"]}/>;
     }
   } 
   return <Navigate to="/nopage/en" replace/>;
